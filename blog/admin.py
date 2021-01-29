@@ -1,15 +1,11 @@
 from django.contrib import admin
 
-from .models import Post, Author
+from .models import Post
 
-admin.site.register(Post)
-admin.site.register(Author)
+class PostAdmin(admin.ModelAdmin):
+  fields = ['title', ('author', 'slug')]
 
-
-
-
-
-
+admin.site.register(Post, PostAdmin)
 
 
 
