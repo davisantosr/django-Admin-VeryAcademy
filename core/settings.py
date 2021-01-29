@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'django.contrib.admin',
-    'blog.apps.BlogAdminConfig' #setting new default admin area
+    'django.contrib.admin',
+    # 'blog.apps.BlogAdminConfig', #setting new default admin area
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
