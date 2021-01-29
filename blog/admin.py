@@ -2,8 +2,24 @@ from django.contrib import admin
 
 from .models import Post
 
+TEXT = 'This is where you put some title and define the author'
+
+
+
 class PostAdmin(admin.ModelAdmin):
-  fields = ['title', ('author', 'slug')]
+  fieldsets = (
+    ('Section A', {
+      'fields': ('title', 'author',),
+      'description': '%s' % TEXT,
+    }),
+
+    ('Section B', {
+      'fields': ('slug',),
+      'classes': ('collapse',),
+    }),
+  )
+
+
 
 admin.site.register(Post, PostAdmin)
 
