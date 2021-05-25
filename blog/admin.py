@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
+from django.contrib import messages
 from . import models
 
 class BlogAdminArea(admin.AdminSite):
@@ -20,6 +21,10 @@ class TestAdminPermissions(admin.ModelAdmin):
     return True
 
   def has_delete_permission(self, request, obj=None):
+    if obj != None and request.POST.get('action') == 'delete_selected':
+      messages.add_message(request, messages.ERROR, (
+        'Tell me. Are you really sure?'
+      ))
     return True
 
   def has_module_permission(self, request):
